@@ -1,0 +1,23 @@
+{
+  "name": "quest05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enginepdf/Quest05.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enginepdf/Quest05/issues"
+  },
+  "homepage": "https://github.com/enginepdf/Quest05#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.4.0"
+  }
+}
