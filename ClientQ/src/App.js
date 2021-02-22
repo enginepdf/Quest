@@ -24,18 +24,24 @@ export default class App extends Component{ // with create react app, babel, you
  }
 
  check(){
-  fetch('/process/check')
+  fetch('http://localhost:3000/process/check')
       .then(res => res.json())
       .then((data) => {
         this.setState({ res: data });
+      })
+      .catch(err => {
+        console.log(err);
       });
  }
 
  check1(){
-  fetch('/check1')
+  fetch('http://localhost:3000/check1')
       .then(res => res.json())
       .then((data) => {
         this.setState({ res: data });
+      })
+      .catch(err => {
+        console.log(err);
       });
  }
 
