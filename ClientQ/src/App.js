@@ -24,7 +24,7 @@ export default class App extends Component{ // with create react app, babel, you
  }
 
  check(){
-  fetch(':3000')
+  fetch('/process/check')
       .then(res => res.json())
       .then((data) => {
         this.setState({ res: data });
@@ -32,7 +32,7 @@ export default class App extends Component{ // with create react app, babel, you
  }
 
  check1(){
-  fetch(':3000')
+  fetch('/check1')
       .then(res => res.json())
       .then((data) => {
         this.setState({ res: data });

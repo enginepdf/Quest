@@ -1,7 +1,23 @@
 const express=require('express');
 const router=express.Router();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const compression=require('compression');
+const helmet=require('helmet');
 
 const app=express();
+app.use(helmet());
+app.use(compression());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: ['http://localhost:5000', '*'],
+    methods: ['GET'],
+    credentials: true
+  })
+);
 
 app.use('/process', check(app));
 
