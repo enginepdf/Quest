@@ -60,10 +60,10 @@ export default class App extends Component{ // with create react app, babel, you
      <div>
        <h1>Response : {res}</h1>
        <div>
-          <button className='button1' onClick={check}>Check</button>
-          <button className='button1' onClick={check1}>Check1</button>
+          <button id='button1' className='button1' onClick={check}>Check</button>
+          <button id='button2' className='button1' onClick={check1}>Check1</button>
        </div>
-       <button id='button2' onClick={onoffTimer}>ON/OFF</button>
+       <button id='button3' onClick={onoffTimer}>ON/OFF</button>
        {timer ? <Timer /> : <></>}
     </div>
    )
