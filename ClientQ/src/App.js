@@ -47,6 +47,7 @@ export default class App extends Component{ // with create react app, babel, you
 
  componentDidMount(){
    console.log("App : componentDidMount");
+   document.title='ClientQ';
  }
 
  componentDidUpdate(){
@@ -58,7 +59,7 @@ export default class App extends Component{ // with create react app, babel, you
    let {onoffTimer, check, check1}=this;
    return(
      <div>
-       <h1>Response : {res}</h1>
+       <h1 id='h1res'>Response : {res}</h1>
        <div>
           <button id='button1' className='button1' onClick={check}>Check</button>
           <button id='button2' className='button1' onClick={check1}>Check1</button>
