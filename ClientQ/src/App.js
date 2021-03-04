@@ -10,7 +10,7 @@ export default class App extends Component{ // with create react app, babel, you
      super(props);
      this.state={
        res:'',
-       timer:true
+       timer:false
      };
      this.onoffTimer=this.onoffTimer.bind(this);
      this.check=this.check.bind(this);
