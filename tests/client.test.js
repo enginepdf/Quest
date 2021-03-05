@@ -2,10 +2,10 @@ import { timeout } from './config'
 
 beforeAll(async () => {
     jest.setTimeout(timeout)
-    await page.goto('http://localhost:5000', {waitUntil: 'domcontentloaded'});
+    await page.goto('http://localhost:5000');
 });
 
-describe('Test header and title of the page', () => {
+describe('Frontend testing', () => {
     test('Title of the page', async () => {
         const title = await page.title();
         expect(title).toBe('ClientQ');
