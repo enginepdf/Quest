@@ -51,5 +51,6 @@ describe('Frontend testing', () => {
 
 
 afterAll((done)=> {
+    page.close();
     server.close(done);
 })

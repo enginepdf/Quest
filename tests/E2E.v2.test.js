@@ -49,5 +49,7 @@ describe('Frontend testing', () => {
     }, timeout);
 });
 
-// afterAll(()=> {
-// })
+
+afterAll(()=> {
+    page.close();
+})
