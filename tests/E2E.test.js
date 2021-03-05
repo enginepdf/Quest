@@ -2,9 +2,12 @@ import { timeout } from './config';
 const request = require('supertest');
 const app=require('../app');
 
-beforeAll(async () => {
+let server;
+
+beforeAll(async (done) => {
     jest.setTimeout(timeout);
     await page.goto('http://localhost:5000');
+    server=app.listen(done);
 });
 
 describe('Backend Testing', () => {
@@ -34,7 +37,6 @@ describe('Frontend testing', () => {
         await page.click('#button1');
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
-    
         expect(html).toBe("Response : this is /process/check");
     }, timeout);
     
@@ -47,5 +49,7 @@ describe('Frontend testing', () => {
     }, timeout);
 });
 
-// afterAll(()=> {
-// })
+
+afterAll((done)=> {
+    server.close(done);
+})
