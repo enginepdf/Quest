@@ -27,10 +27,13 @@ app.listen(3000, function(){
 
 function check(app){
         router.get('/check', function(req, res){
-                res.json('this is /process/check');
+                res.status(200).json('this is /process/check');
         });
         app.get('/check1', function(req, res){
-                res.json('this is /check1');
+                res.status(200).json('this is /check1');
         });
         return router;
 }
+
+
+module.exports=app;
