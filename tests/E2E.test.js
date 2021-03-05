@@ -1,10 +1,24 @@
-import { doesNotMatch } from 'assert';
-import { timeout } from './config'
+import { timeout } from './config';
+const request = require('supertest');
 const app=require('../app');
 
 beforeAll(async () => {
     jest.setTimeout(timeout);
     await page.goto('http://localhost:5000');
+});
+
+describe('Backend Testing', () => {
+    test('/process/check', async() => {
+        const response=await request(app).get("/process/check");
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual("this is /process/check");
+    });
+
+    test('/check1', async() => {
+        const response=await request(app).get("/check1");
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual("this is /check1");
+    });
 });
 
 describe('Frontend testing', () => {
@@ -33,6 +47,5 @@ describe('Frontend testing', () => {
     }, timeout);
 });
 
-afterAll(()=> {
-})
-
+// afterAll(()=> {
+// })
