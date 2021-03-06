@@ -84,3 +84,32 @@ afterAll(()=> {
 // jestPuppeteer.debug()
 
 // Puppeteer Recorder Chrome extension
+
+
+// * Request Interception and Targeting Newly Opened Page (https://medium.com/touch4it/end-to-end-testing-with-puppeteer-and-jest-ec8198145321)
+
+
+// test('Intercept Request', async () => {
+//     await page.setRequestInterception(true); // intercept outgoing requests
+//     page.on('request', interceptedRequest => {
+//         if (interceptedRequest.url().endsWith('.png')) {
+//             interceptedRequest.abort();
+//         } else {
+//             interceptedRequest.continue();
+//         }
+//     });
+//     await page.reload({waitUntil: 'networkidle0'}); // images that end with '.png' will not be displayed
+//     // await jestPuppeteer.debug();
+//     await page.setRequestInterception(false);
+// }, timeout);
+
+// test('Target newly opened page', async () => {
+//     const newPagePromise = new Promise(resolve => browser.once('targetcreated', target => resolve(target.page())));
+//     await page.click('.repo_link');
+
+//     const newPage = await newPagePromise;
+//     const title = await newPage.title();
+//     await newPage.close();
+
+//     expect(title).toBe('GitHub - Zovi343/E2E_Testing_with_Puppeteer_Final');
+// }, timeout);
