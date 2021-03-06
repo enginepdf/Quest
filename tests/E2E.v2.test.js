@@ -1,5 +1,6 @@
 import { timeout } from './config';
 const request = require('request');
+const devices = require('puppeteer/DeviceDescriptors');
 
 beforeAll(async () => {
     jest.setTimeout(timeout);
@@ -35,7 +36,7 @@ describe('Frontend testing', () => {
         await page.click('#button1');
         await page.click('#button1');
         const h1res = await page.$('#h1res');
-        const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
+        const html = await page.evaluate(h1res => h1res.innerHTML, h1res); // html=await page.$eval('#h1res', el => el.innerHTML);
         expect(html).toBe("Response : this is /process/check");
     }, timeout);
     
@@ -48,6 +49,29 @@ describe('Frontend testing', () => {
         expect(html).toBe("Response : this is /check1");
     }, timeout);
 });
+
+describe('Mobile Testing', () => {
+    test('Take screenshot of home page', async () => {
+        await page.setViewport({ width: 1920, height: 1080 });
+        await page.screenshot({
+            path: './screenshots/home.jpg',
+            fullpage: true,
+            type: 'jpeg'
+        });
+    }, timeout);
+});
+
+test('Emulate Mobile Device And take screenshot', async () => {
+    await page.goto(`${URL}/login`, {waitUntil: 'domcontentloaded'})
+    const iPhonex = devices['iPhone X'];
+    await page.emulate(iPhonex);
+    await page.setViewport({ width: 375, height: 812, isMobile: true});
+    await page.screenshot({
+        path: './screenshots/home-mobile.jpg',
+        fullpage: true,
+        type: 'jpeg'
+    });
+}, timeout);
 
 
 afterAll(()=> {
