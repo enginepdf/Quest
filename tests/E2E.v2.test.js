@@ -33,7 +33,7 @@ describe('Frontend testing', () => {
     }, timeout);
     
     test('Check button works?', async () => {
-        await page.click('#button1');
+        await page.waitForSelector('#button1');
         await page.click('#button1');
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res); // html=await page.$eval('#h1res', el => el.innerHTML);
@@ -41,11 +41,10 @@ describe('Frontend testing', () => {
     }, timeout);
     
     test('Check1 button works?', async () => {
-        await page.click('#button2');
+        await page.waitForSelector('#button2');
         await page.click('#button2');
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
-    
         expect(html).toBe("Response : this is /check1");
     }, timeout);
 });
