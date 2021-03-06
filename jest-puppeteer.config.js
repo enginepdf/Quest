@@ -4,3 +4,6 @@ module.exports = {
 	},
 	browserContext: 'default',
 }
+
+
+// SLOWMO=

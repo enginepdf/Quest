@@ -50,30 +50,38 @@ describe('Frontend testing', () => {
     }, timeout);
 });
 
-describe('Mobile Testing', () => {
-    test('Take screenshot of home page', async () => {
-        await page.setViewport({ width: 1920, height: 1080 });
-        await page.screenshot({
-            path: './screenshots/home.jpg',
-            fullpage: true,
-            type: 'jpeg'
-        });
-    }, timeout);
-});
+// describe('Mobile Testing', () => {
+//     test('Take screenshot of home page', async () => {
+//         await page.setViewport({ width: 1920, height: 1080 });
+//         await page.screenshot({
+//             path: './screenshots/home.jpg',
+//             fullpage: true,
+//             type: 'jpeg'
+//         });
+//     }, timeout);
 
-test('Emulate Mobile Device And take screenshot', async () => {
-    await page.goto(`${URL}/login`, {waitUntil: 'domcontentloaded'})
-    const iPhonex = devices['iPhone X'];
-    await page.emulate(iPhonex);
-    await page.setViewport({ width: 375, height: 812, isMobile: true});
-    await page.screenshot({
-        path: './screenshots/home-mobile.jpg',
-        fullpage: true,
-        type: 'jpeg'
-    });
-}, timeout);
+//     test('Emulate Mobile Device And take screenshot', async () => {
+//         await page.goto(`${URL}/login`, {waitUntil: 'domcontentloaded'})
+//         const iPhonex = devices['iPhone X'];
+//         await page.emulate(iPhonex);
+//         await page.setViewport({ width: 375, height: 812, isMobile: true});
+//         await page.screenshot({
+//             path: './screenshots/home-mobile.jpg',
+//             fullpage: true,
+//             type: 'jpeg'
+//         });
+//     }, timeout);
+// });
 
 
 afterAll(()=> {
     page.close();
 })
+
+
+// Running single Test Seperately
+        // HEADLESS="false" SLOWMO=100 jest -t 'Intercept Request'
+
+// jestPuppeteer.debug()
+
+// Puppeteer Recorder Chrome extension
