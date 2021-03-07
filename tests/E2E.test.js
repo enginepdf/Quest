@@ -1,5 +1,5 @@
 import { timeout } from './config';
-const request = require('supertest');
+const request = require('supertest'); // const request = require('request'); // require('request-promise');
 const app=require('../app');
 
 let server;
@@ -46,11 +46,9 @@ describe('Frontend testing', () => {
         await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
-    
         expect(html).toBe("Response : this is /check1");
     }, timeout);
 });
-
 
 afterAll(async (done)=> {
     page.close();
