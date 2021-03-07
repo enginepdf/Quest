@@ -1,6 +1,6 @@
 import { timeout } from './config';
-const request = require('request');
-const devices = require('puppeteer/DeviceDescriptors');
+const request = require('request'); // require('request-promise');
+// const devices = require('puppeteer/DeviceDescriptors');
 
 beforeAll(async () => {
     jest.setTimeout(timeout);
@@ -8,14 +8,14 @@ beforeAll(async () => {
 });
 
 describe('Backend Testing', () => {
-    test('/process/check', async() => {
+    test('/process/check', () => {
         request("http://localhost:3000/process/check", (error, response, body) => {
             expect(response.statusCode).toBe(200);
             expect(JSON.parse(response.body)).toEqual("this is /process/check");
         });  
     });
 
-    test('/check1', async() => {
+    test('/check1', () => {
         request("http://localhost:3000/check1", (error, response, body) => {
         expect(response.statusCode).toBe(200);
         expect(JSON.parse(response.body)).toEqual("this is /check1");
@@ -33,16 +33,16 @@ describe('Frontend testing', () => {
     }, timeout);
     
     test('Check button works?', async () => {
-        await page.waitForSelector('#button1');
         await page.click('#button1');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res); // html=await page.$eval('#h1res', el => el.innerHTML);
         expect(html).toBe("Response : this is /process/check");
     }, timeout);
     
     test('Check1 button works?', async () => {
-        await page.waitForSelector('#button2');
         await page.click('#button2');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
         expect(html).toBe("Response : this is /check1");

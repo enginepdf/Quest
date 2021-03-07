@@ -24,6 +24,6 @@ describe('Backend Testing', () => {
     });
 });
 
-afterAll((done)=> {
-    server.close(done);
+afterAll(async (done)=> {
+    await server.close(done);
 })

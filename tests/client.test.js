@@ -17,6 +17,7 @@ describe('Frontend testing', () => {
     
     test('Check button works?', async () => {
         await page.click('#button1');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
     
@@ -25,6 +26,7 @@ describe('Frontend testing', () => {
     
     test('Check1 button works?', async () => {
         await page.click('#button2');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
     

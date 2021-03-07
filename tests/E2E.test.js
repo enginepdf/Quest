@@ -35,6 +35,7 @@ describe('Frontend testing', () => {
     
     test('Check button works?', async () => {
         await page.click('#button1');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
         expect(html).toBe("Response : this is /process/check");
@@ -42,6 +43,7 @@ describe('Frontend testing', () => {
     
     test('Check1 button works?', async () => {
         await page.click('#button2');
+        await page.waitFor(1);
         const h1res = await page.$('#h1res');
         const html = await page.evaluate(h1res => h1res.innerHTML, h1res);
     
@@ -50,7 +52,7 @@ describe('Frontend testing', () => {
 });
 
 
-afterAll((done)=> {
+afterAll(async (done)=> {
     page.close();
-    server.close(done);
+    await server.close(done);
 })
