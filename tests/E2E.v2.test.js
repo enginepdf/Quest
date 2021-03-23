@@ -17,8 +17,8 @@ describe('Backend Testing', () => {
 
     test('/check1', () => {
         request("http://localhost:3000/check1", (error, response, body) => {
-        expect(response.statusCode).toBe(200);
-        expect(JSON.parse(response.body)).toEqual("this is /check1");
+            expect(response.statusCode).toBe(200);
+            expect(JSON.parse(response.body)).toEqual("this is /check1");
         });  
     });
 });

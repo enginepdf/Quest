@@ -15,6 +15,7 @@ export default class App extends Component{ // with create react app, babel, you
      this.onoffTimer=this.onoffTimer.bind(this);
      this.check=this.check.bind(this);
      this.check1=this.check1.bind(this);
+     this.check2=this.check2.bind(this);
      // this.props=props
  }
 
@@ -45,6 +46,17 @@ export default class App extends Component{ // with create react app, babel, you
       });
  }
 
+ check2(){      
+  fetch('API-GATEWAY/check2')
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ res: data.body });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+ }
+
  componentDidMount(){
    console.log("App : componentDidMount");
    document.title='ClientQ';
@@ -56,7 +68,7 @@ export default class App extends Component{ // with create react app, babel, you
 
  render(){
    let {res, timer} = this.state;
-   let {onoffTimer, check, check1}=this;
+   let {onoffTimer, check, check1, check2}=this;
    return(
      <div>
        <h1 id='h1res'>Response : {res}</h1>
@@ -64,7 +76,8 @@ export default class App extends Component{ // with create react app, babel, you
           <button id='button1' className='button1' onClick={check}>Check</button>
           <button id='button2' className='button1' onClick={check1}>Check1</button>
        </div>
-       <button id='button3' onClick={onoffTimer}>ON/OFF</button>
+       {/* <button id='button3' onClick={onoffTimer}>ON/OFF</button> */}
+       <button id='button3' className='button1' onClick={check2}>Check2</button>
        {timer ? <Timer /> : <></>}
     </div>
    )
