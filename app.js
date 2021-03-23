@@ -6,6 +6,7 @@ const compression=require('compression');
 const helmet=require('helmet');
 
 const app=express();
+
 app.use(helmet());
 app.use(compression());
 
@@ -21,7 +22,7 @@ app.use(
 
 app.use('/process', check(app));
 
-app.listen(3000, function(){
+app.listen(3000, function(){ // // let port= ; app.listen(port, () => )
         console.log('port 3000 connected');
 });
 
@@ -34,6 +35,5 @@ function check(app){
         });
         return router;
 }
-
 
 module.exports=app;
