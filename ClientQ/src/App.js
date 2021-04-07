@@ -17,12 +17,12 @@ export default class App extends Component{ // with create react app, babel, you
      this.check1=this.check1.bind(this);
      this.check2=this.check2.bind(this);
      // this.props=props
- }
+ };
 
  onoffTimer(){
    this.setState((state) => ({timer : !state.timer})
-   )
- }
+   );
+ };
 
  check(){
   fetch('http://localhost:3000/process/check')
@@ -33,7 +33,7 @@ export default class App extends Component{ // with create react app, babel, you
       .catch(err => {
         console.log(err);
       });
- }
+ };
 
  check1(){
   fetch('http://localhost:3000/check1')
@@ -44,7 +44,7 @@ export default class App extends Component{ // with create react app, babel, you
       .catch(err => {
         console.log(err);
       });
- }
+ };
 
  check2(){      
   fetch('API-GATEWAY/check2')
@@ -55,16 +55,16 @@ export default class App extends Component{ // with create react app, babel, you
       .catch(err => {
         console.log(err);
       });
- }
+ };
 
  componentDidMount(){
    console.log("App : componentDidMount");
    document.title='ClientQ';
- }
+ };
 
  componentDidUpdate(){
    console.log("App : componentDidUpdate");
- }
+ };
 
  render(){
    let {res, timer} = this.state;
@@ -80,7 +80,7 @@ export default class App extends Component{ // with create react app, babel, you
        <button id='button3' className='button1' onClick={check2}>Check2</button>
        {timer ? <Timer /> : <></>}
     </div>
-   )
- }
+   );
+ };
 
-}
+};

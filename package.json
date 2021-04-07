@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --forceExit",
-    "start": "node app.js"
+    "start": "node app.js",
+    "lint": "eslint app.js --quiet"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +24,8 @@
     "node": "^15.4.0",
     "puppeteer": "^8.0.0",
     "supertest": "^6.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0"
   }
 }
