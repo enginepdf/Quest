@@ -1,5 +1,3 @@
-# ecs.tf
-
 resource "aws_ecs_cluster" "quest" {
   name = "quest-cluster"
   tags = {
@@ -29,8 +27,6 @@ resource "aws_ecs_task_definition" "app" {
   cpu                      = 1000
   memory                   = 500
   container_definitions    = data.template_file.web-app.rendered
-
-  depends_on = [aws_cloudwatch_log_stream.web_app_log_stream]
 }
 
 resource "aws_ecs_service" "main" {
@@ -52,5 +48,5 @@ resource "aws_ecs_service" "main" {
     container_port   = 3000
   }
 
-  depends_on = [aws_alb_listener.front_end, aws_iam_role_policy_attachment.ecs_task_execution_role]
+  depends_on = [aws_alb_listener.alb-listener, aws_iam_role_policy_attachment.ecs_task_execution_role]
 }
