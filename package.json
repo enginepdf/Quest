@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --forceExit",
-    "start": "node app.js",
-    "lint": "eslint app.js --quiet"
+    "start": "pm2 app.js",
+    "lint": "eslint app.js --quiet",
+    "pm2": "pm2 start app.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "jest": "^26.6.3",
     "jest-puppeteer": "^4.4.0",
     "node": "^15.4.0",
+    "pm2": "^4.5.6",
     "puppeteer": "^8.0.0",
     "supertest": "^6.1.3"
   },
