@@ -81,6 +81,6 @@ export default class App extends Component{ // with create react app, babel, you
        {timer ? <Timer /> : <></>}
     </div>
    );
- };
+ }
 
 };
