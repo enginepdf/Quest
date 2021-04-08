@@ -5,17 +5,17 @@ version: 0.2
               runtime-versions: 
                   nodejs: 12
               commands:
-                  - echo Entering install phase...
+                  - echo "Entering install phase..."
                   - npx lerna run lint
                   - npx lerna bootstrap
           pre_build:
               commands: 
-                  - echo Entering pre_build phase... 
-                  - chmod +x Scripts/pm2.sh; Scripts/pm2.sh
+                  - echo "Entering pre_build phase..."
+                  - chmod +x scripts/pm2.sh; scripts/pm2.sh
                   - npx lerna run test
           build: 
               commands:
-                  - echo Entering build phase...
-                  - chmod +x Scripts/build.sh; Scripts/build.sh
-                  - chmod +x Scripts/deploy.sh; Scripts/deploy.sh
+                  - echo "Entering build phase..."
+                  - chmod +x scripts/build.sh; scripts/build.sh
+                  - chmod +x scripts/deploy.sh; scripts/deploy.sh
                   - npx lerna clean --yes
