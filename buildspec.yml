@@ -2,8 +2,8 @@ version: 0.2
 
       phases: 
           install:
-              runtime-versions: 14.16.1
-                  nodejs: 
+              runtime-versions: 
+                  nodejs: 12
               commands:
                   - echo Entering install phase...
                   - npx lerna run lint
