@@ -11,11 +11,11 @@ version: 0.2
           pre_build:
               commands: 
                   - echo Entering pre_build phase... 
-                  - npx lerna run pm2
+                  - chmod +x Scripts/pm2.sh; Scripts/pm2.sh
                   - npx lerna run test
           build: 
               commands:
                   - echo Entering build phase...
-                  - npx lerna run build
-                  - Scripts/deploy.sh
+                  - chmod +x Scripts/build.sh; Scripts/build.sh
+                  - chmod +x Scripts/deploy.sh; Scripts/deploy.sh
                   - npx lerna clean --yes
