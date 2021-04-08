@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --forceExit",
     "start": "pm2 app.js",
-    "lint": "eslint app.js --quiet",
+    "lint": "eslint app.js --fix",
     "pm2": "pm2 start app.js"
   },
   "author": "",
