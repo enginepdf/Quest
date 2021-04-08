@@ -10,7 +10,7 @@ data "template_file" "web-app" {
   template = file("./web_app.json.tpl")
 
   vars = {
-    app_image      = "dockerdap12/quest:3.0"
+    app_image      = "dockerdap12/quest:latest"
     app_port       = 3000
     fargate_cpu    = 1000
     fargate_memory = 500
