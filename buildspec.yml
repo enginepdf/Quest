@@ -17,5 +17,5 @@ version: 0.2
               commands:
                   - echo Entering build phase...
                   - npx lerna run build
-                  - ./deploy.sh
+                  - Scripts/deploy.sh
                   - npx lerna clean --yes

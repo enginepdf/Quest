@@ -1,6 +1,6 @@
 import { timeout } from './config';
 const request = require('supertest'); // const request = require('request'); // require('request-promise');
-const app=require('../app');
+const app=require('../Server/app');
 
 let server;
 

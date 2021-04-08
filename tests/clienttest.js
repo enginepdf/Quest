@@ -1,5 +1,5 @@
 import { timeout } from './config'
-// const app=require('../app'); // server on
+// const app=require('../Server/app'); // server on
 
 beforeAll(async () => {
     jest.setTimeout(timeout);
