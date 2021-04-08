@@ -15,7 +15,7 @@ resource "aws_subnet" "main-public-sn1" {
   availability_zone       = "ap-northeast-2a" 
 
   tags = {
-    Name = "main-public-sn2"
+    Name = "main-public-sn1"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_subnet" "main-public-sn2" {
   availability_zone       = "ap-northeast-2b" 
 
   tags = {
-    Name = "main-public-sn1"
+    Name = "main-public-sn2"
   }
 }
 
