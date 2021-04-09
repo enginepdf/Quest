@@ -8,6 +8,7 @@ version: 0.2
                   - echo "Entering install phase..."
                   - npx lerna run lint
                   - npx lerna bootstrap
+                  - chmod +x scripts/install.sh; scripts/install.sh
           pre_build:
               commands: 
                   - echo "Entering pre_build phase..."
@@ -16,6 +17,7 @@ version: 0.2
           build: 
               commands:
                   - echo "Entering build phase..."
+                  - chmod +x scripts/aws_config.sh; scripts/aws_config.sh
                   - chmod +x scripts/build.sh; scripts/build.sh
                   - chmod +x scripts/deploy.sh; scripts/deploy.sh
-                  - npx lerna clean --yes
+                  - npx lerna clean --y
