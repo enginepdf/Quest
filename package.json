@@ -4,7 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest --forceExit"
+    "test": "jest --forceExit",
+    "lint": "eslint Infra/*.js --fix"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,7 @@
     "puppeteer": ">= 1.5.0 < 3"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "eslint": "^7.23.0"
   }
 }
