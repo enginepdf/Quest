@@ -6,4 +6,5 @@ npm run test
 
 kill -9 `lsof -i:5000 | grep "node"|awk '{print $2}'`
 docker stop $DOCKER_ID/$IMAGE
+docker rmi $DOCKER_ID/$IMAGE
 exit;
