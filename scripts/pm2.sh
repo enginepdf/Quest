@@ -4,3 +4,5 @@ cd ..
 cd Server
 npm run pm2
 cd ..
+
+exit;
