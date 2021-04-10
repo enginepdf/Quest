@@ -8,16 +8,19 @@ version: 0.2
                   - echo "Entering install phase..."
                   - npx lerna run lint
                   - npx lerna bootstrap
-                  - chmod +x scripts/install.sh; scripts/install.sh
+                  - chmod +R 555 scripts
+                  - scripts/install.sh
           pre_build:
               commands: 
                   - echo "Entering pre_build phase..."
-                  - chmod +x scripts/pm2.sh; scripts/pm2.sh
+                  - scripts/pm2.sh
                   - npx lerna run test
+                  - sudo pm2 stop all
           build: 
               commands:
                   - echo "Entering build phase..."
-                  - chmod +x scripts/aws_config.sh; scripts/aws_config.sh
-                  - chmod +x scripts/build.sh; scripts/build.sh
-                  - chmod +x scripts/deploy.sh; scripts/deploy.sh
+                  - scripts/aws_config.sh
+                  - scripts/build.sh
+                  - scripts/test.sh 
+                  - scripts/deploy.sh
                   - npx lerna clean --y
