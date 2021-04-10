@@ -10,3 +10,6 @@ cd ..
 # ClientQ build
 
 npx lerna run build # cd ClientQ; npm run build; cd ..
+
+
+exit;
