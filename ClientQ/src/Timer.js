@@ -13,9 +13,9 @@ export default class Timer extends React.Component{
     }
 
    componentDidMount(){
-       console.log('Timer : componentDidMount')
+       console.log('Timer : componentDidMount');
        this.timeID=setInterval(
-           () =>{ this.tick()}, 1000);
+           () =>{ this.tick();}, 1000);
        
    }
 
@@ -28,6 +28,6 @@ export default class Timer extends React.Component{
    }
    
    render(){
-      return <div id="timer">It is {this.state.date.toLocaleTimeString()}</div>  // local time structure
+      return <div id="timer">It is {this.state.date.toLocaleTimeString()}</div>; // local time structure
    }
 }
