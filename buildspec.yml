@@ -6,8 +6,8 @@ version: 0.2
                   nodejs: 12
               commands:
                   - echo "Entering install phase..."
-                  - npx lerna run lint
-                  - zip Infra/lambda.zip Infra/index.js
+                  - npx lerna run lint 
+                  - zip Infra/lambda.zip Infra/index.js  # overwrite Infra/lambda.zip with Infra/index.js
                   - npx lerna bootstrap
                   - chmod -R 555 scripts
                   - scripts/install.sh
@@ -15,7 +15,7 @@ version: 0.2
               commands: 
                   - echo "Entering pre_build phase..."
                   - scripts/pm2.sh
-                  - npx lerna run test
+                  - npx lerna run test #  npm run test
                   - sudo pm2 stop all
           build: 
               commands:
@@ -24,4 +24,4 @@ version: 0.2
                   - scripts/build.sh
                   - scripts/test.sh 
                   - scripts/deploy.sh
-                  - npx lerna clean --y
+                  - npx lerna clean --y # optional
