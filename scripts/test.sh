@@ -1,5 +1,10 @@
+# Start Client
+
 serve -s ClientQ/build -l 5000 & 
-echo -ne '\n'
+sleep 1
+echo -ne '\n' # pressing enter
+
+# Start Server
 
 docker run -d --name quest -p 3000:3000 $DOCKER_ID/$IMAGE 
 
