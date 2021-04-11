@@ -1,10 +1,12 @@
-serve -s ClientQ/build -l 5000 &
+serve -s ClientQ/build -l 5000 & 
 echo -ne '\n'
 
-docker run -d -p 3000:3000 $DOCKER_ID/$IMAGE
-npm run test
+docker run -d --name quest -p 3000:3000 $DOCKER_ID/$IMAGE 
+
+npm run test # npx lerna run test
 
 kill -9 `lsof -i:5000 | grep "node"|awk '{print $2}'`
-docker stop $DOCKER_ID/$IMAGE
+docker stop quest
 docker rmi $DOCKER_ID/$IMAGE
+
 exit;
