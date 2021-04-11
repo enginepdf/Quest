@@ -6,8 +6,8 @@ version: 0.2
                   nodejs: 12
               commands:
                   - echo "Entering install phase..."
-                  - zip Infra/lambda.zip index.js
                   - npx lerna run lint
+                  - zip Infra/lambda.zip Infra/index.js
                   - npx lerna bootstrap
                   - chmod -R 555 scripts
                   - scripts/install.sh
